@@ -1,0 +1,7 @@
+run = "uvicorn main:app --host 0.0.0.0 --port 8080"
+entrypoint = "main.py"
+[env]
+RELAY_SECRET = "change-me-in-production"
+DB_PATH = "relay.db"
+LOG_LEVEL = "info"
+MAX_MESSAGE_AGE_HOURS = "24"
