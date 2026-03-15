@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: voice-sdlc-relay
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: RELAY_SECRET
+        sync: false
+      - key: LOG_LEVEL
+        value: info
+      - key: MAX_MESSAGE_AGE_HOURS
+        value: "24"
+      - key: PYTHON_VERSION
+        value: "3.12.0"
